@@ -1,4 +1,14 @@
-[
-    {"title": "AI技术突破：新算法可自我学习", "link": "https://example.com/1", "date": "2025-03-17"},
-    {"title": "OpenAI发布最新GPT模型", "link": "https://example.com/2", "date": "2025-03-16"}
+import json
+
+# 你的爬虫代码，假设已经爬取了最新的新闻列表
+latest_news = [
+    {"title": "AI Breakthrough in 2025", "url": "https://example.com/ai-news-1"},
+    {"title": "New AI Model Released", "url": "https://example.com/ai-news-2"},
+    # ...最多20条新闻
 ]
+
+# **写入 news.json 文件**
+with open("news.json", "w", encoding="utf-8") as file:
+    json.dump(latest_news, file, indent=4, ensure_ascii=False)
+
+print("news.json 已更新！")
