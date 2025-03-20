@@ -3,7 +3,7 @@ name: Update News
 on:
   schedule:
     # 每小时运行一次
-    - cron: '5 * * * *'
+    - cron: '10 * * * *'
   workflow_dispatch:  # 允许手动触发
 
 jobs:
@@ -33,4 +33,3 @@ jobs:
         git add news.json
         git commit -m "更新新闻数据"
         git push
-
