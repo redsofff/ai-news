@@ -28,7 +28,7 @@
                 news.slice(0, 20).forEach(item => {
                     const div = document.createElement('div');
                     div.className = 'news-item';
-                    div.innerHTML = `<a href="${item.link}" target="_blank">${item.title}</a> <br> <small>${item.date}</small>`;
+                    div.innerHTML = `<a href="${item.url}" target="_blank">${item.title}</a> <br> <small>${item.date}</small>`;
                     container.appendChild(div);
                 });
             } catch (error) {
