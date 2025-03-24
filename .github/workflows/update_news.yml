@@ -58,8 +58,11 @@ jobs:
 
     # 8. Push changes to GitHub
     - name: Push changes
-      env:
-        GH_TOKEN: ${{ secrets.GH_TOKEN }}  # 获取 GitHub Secrets 中的 Token
-      run: |
-        git remote set-url origin https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/redsofff/ai-news.git  # 设置远程 URL，使用 PAT 进行身份验证
-        git push origin main  # 将更改推送到 GitHub 仓库
+  env:
+    GH_TOKEN: ${{ secrets.GH_TOKEN }}  # 访问 GitHub Secrets 获取 Token
+  run: |
+    git config --global user.name "github-actions"
+    git config --global user.email "github-actions@users.noreply.github.com"
+    git remote set-url origin https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/redsofff/ai-news.git
+    git pull origin main --rebase
+    git push origin main
