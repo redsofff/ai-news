@@ -1,5 +1,7 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.common.by import By
+from selenium.webdriver.chrome.options import Options
 from webdriver_manager.chrome import ChromeDriverManager
 from bs4 import BeautifulSoup
 import time
@@ -7,32 +9,35 @@ from urllib.parse import urljoin  # 导入 urljoin 来处理相对链接
 import json
 import os
 
-# 1. 启动 Chrome 浏览器
-options = webdriver.ChromeOptions()
+# 1. 设置 Chrome 配置，启用无头模式
+options = Options()
 options.add_argument("--headless")  # 无界面模式
-options.add_argument("--disable-gpu")
+options.add_argument("--disable-gpu")  # 禁用 GPU 加速
+options.add_argument("--no-sandbox")  # 防止沙箱问题
+options.add_argument("--disable-dev-shm-usage")  # 避免共享内存问题
 
+# 2. 启动 Chrome 浏览器
 driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
 
-# 2. 访问 TechCrunch AI 页面
+# 3. 访问 TechCrunch AI 页面
 url = "https://techcrunch.com/category/artificial-intelligence/"
 driver.get(url)
 
-# 3. 等待页面加载
-time.sleep(10)
+# 4. 等待页面加载
+time.sleep(10)  # 你可以根据需要调整等待时间
 
-# 4. 获取 HTML 并解析
+# 5. 获取 HTML 并解析
 soup = BeautifulSoup(driver.page_source, "html.parser")
 print(driver.page_source[:1000])  # 打印前 1000 个字符
 
-# 5. 查找新闻标题（你需要手动查看 HTML 结构）
+# 6. 查找新闻标题（你需要手动查看 HTML 结构）
 articles = soup.find_all("h3")  # 可能需要调整
 
 latest_news = []  # 用来存储抓取到的新闻数据
 
 # 遍历并排除特定标题
 if articles:
-    for i, article in enumerate(articles[:23]):
+    for i, article in enumerate(articles[:23]):  # 获取前 23 条新闻
         # 排除包含 "Topics" 或 "More from TechCrunch" 或具有特定类名的元素
         if article.text.strip() == "Topics" or article.text.strip() == "More from TechCrunch" or "wp-block-query-title" in article.get("class", []):
             continue  # 跳过不需要的标题
@@ -55,7 +60,7 @@ if articles:
 else:
     print("❌ 未找到任何新闻！")
 
-# 6. 保存新闻到 news.json 文件
+# 7. 保存新闻到 news.json 文件
 def save_news_to_json(news):
     with open("news.json", "w", encoding="utf-8") as file:
         json.dump(news, file, indent=4, ensure_ascii=False)
@@ -64,7 +69,7 @@ def save_news_to_json(news):
 # 调用保存函数
 save_news_to_json(latest_news)
 
-# 7. Git 提交和推送
+# 8. Git 提交和推送
 def update_git_repo():
     os.system("git add news.json")  # 添加 news.json 到 git
     os.system('git commit -m "更新新闻数据"')  # 提交更改
@@ -74,5 +79,5 @@ def update_git_repo():
 # 调用 Git 更新函数
 update_git_repo()
 
-# 8. 关闭浏览器
+# 9. 关闭浏览器
 driver.quit()
