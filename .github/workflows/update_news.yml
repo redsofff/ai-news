@@ -2,8 +2,7 @@ name: Update News
 
 on:
   schedule:
-    # 每小时运行一次
-    - cron: '10 * * * *'
+    - cron: '10 * * * *'  # 每小时的第10分钟运行
   workflow_dispatch:  # 允许手动触发
 
 jobs:
@@ -14,8 +13,8 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Check current directory  # 新增步骤，检查当前工作目录
-      run: pwd  # 输出当前工作目录
+    - name: Check current directory  # 检查当前工作目录
+      run: pwd  
 
     - name: Set up Python
       uses: actions/setup-python@v2
@@ -24,18 +23,35 @@ jobs:
 
     - name: Install dependencies
       run: |
-        # 输出当前工作目录，确保 requirements.txt 文件存在
-        pwd
-        ls -la  # 列出当前目录下的文件，帮助确认 requirements.txt 是否存在
+        pwd  # 输出当前目录，确保在正确的目录下
+        ls -la  # 列出文件，确保 requirements.txt 存在
         pip install -r requirements.txt
 
-    - name: Run the scraper
-      run: python3 scraper.py  # 假设爬虫脚本是 scraper.py
+    - name: Run the scraper  # 运行爬虫脚本
+      run: python3 scraper.py  
 
-    - name: Commit changes
+    - name: Prepare commit
       run: |
         git config --global user.name "github-actions"
         git config --global user.email "github-actions@users.noreply.github.com"
-        git add news.json
-        git commit -m "更新新闻数据"
-        git push
+
+        git status
+        git stash || echo "Nothing to stash"  # 处理未提交的更改，防止 pull 失败
+        git pull --rebase origin main || echo "Pull failed, continuing..."
+        git stash pop || echo "Nothing to pop"
+
+    - name: Commit changes
+      run: |
+        if [ -f "news.json" ]; then  # 确保 news.json 存在再提交
+          git add news.json
+          git commit -m "更新新闻数据" || echo "No changes to commit"
+        else
+          echo "news.json 文件不存在，跳过提交"
+        fi
+
+    - name: Push changes
+      env:
+        GH_TOKEN: ${{ secrets.GH_TOKEN }}  # 访问 GitHub Secrets 获取 Token
+      run: |
+        git remote set-url origin https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/redsofff/ai-news.git
+        git push origin main
