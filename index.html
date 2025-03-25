@@ -30,8 +30,8 @@
 
                 // 只显示最新的 20 条新闻
                 news.slice(0, 20).forEach(item => {
-                    // 如果没有摘要，默认使用标题的前 200 个字符作为摘要
-                    const summaryText = item.summary && item.summary.trim() ? item.summary : (item.title.length > 200 ? item.title.slice(0, 200) + '...' : item.title);
+                    // 如果没有摘要，默认使用详细摘要（detailed_summary）的前200个字符
+                    const summaryText = item.detailed_summary && item.detailed_summary.trim() ? item.detailed_summary.slice(0, 200) : (item.title.length > 200 ? item.title.slice(0, 200) + '...' : item.title);
                     
                     // 确保 `url` 字段正确（部分 JSON 可能用 `link` 而不是 `url`）
                     const newsUrl = item.url || item.link || '#';
