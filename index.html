@@ -9,9 +9,10 @@
         h1 { text-align: center; }
         #news-container { margin-top: 20px; }
         .news-item { border-bottom: 1px solid #ddd; padding: 10px 0; }
-        .news-item a { text-decoration: none; color: #007bff; font-weight: bold; }
+        .news-item a { text-decoration: none; color: #007bff; font-weight: bold; font-size: 18px; }
         .news-item a:hover { text-decoration: underline; }
-        small { display: block; color: #555; font-size: 14px; }
+        .news-summary { display: block; color: #444; font-size: 14px; margin-top: 5px; }
+        .news-meta { display: block; color: #777; font-size: 12px; margin-top: 5px; }
     </style>
 </head>
 <body>
@@ -25,21 +26,24 @@
                 const news = await response.json();
                 const container = document.getElementById('news-container');
                 container.innerHTML = '';
-    
+
                 news.slice(0, 20).forEach(item => {
+                    // 默认使用标题的前50个字符作为摘要（如果 `summary` 为空）
+                    const summaryText = item.summary && item.summary.trim() ? item.summary : (item.title.length > 50 ? item.title.slice(0, 50) + '...' : item.title);
+                    
+                    // 确保 `url` 字段正确（部分 JSON 可能用 `link` 而不是 `url`）
+                    const newsUrl = item.url || item.link || '#';
+
                     // 获取当前日期作为默认时间
                     const currentDate = new Date().toLocaleDateString();
-
-                    // 如果没有摘要，使用标题的前50个字符作为摘要
-                    const defaultSummary = item.title.length > 50 ? item.title.slice(0, 50) + '...' : item.title;
-
+                    
                     // 创建新闻项
                     const div = document.createElement('div');
                     div.className = 'news-item';
                     div.innerHTML = `
-                        <a href="${item.url}" target="_blank">${item.title || '标题缺失'}</a> <br>
-                        <small>${item.summary || defaultSummary}</small><br>
-                        <small>${item.source || '未知来源'} - ${item.date || currentDate}</small>
+                        <a href="${newsUrl}" target="_blank">${item.title || '标题缺失'}</a> 
+                        <span class="news-summary">${summaryText}</span>
+                        <span class="news-meta">${item.source || '未知来源'} - ${item.date || currentDate}</span>
                     `;
                     container.appendChild(div);
                 });
@@ -53,6 +57,5 @@
         // 每分钟自动更新新闻
         setInterval(fetchNews, 60000);
     </script>
-    
 </body>
 </html>
