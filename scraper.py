@@ -77,45 +77,4 @@ def scrape_website(source):
             summary = summary_tag.text.strip() if summary_tag else (title[:50] + "...")
             date = date_tag.text.strip() if date_tag else datetime.today().strftime("%Y-%m-%d")
 
-            # 使用 newspaper3k 提取文章内容和详细摘要
-            article_obj = Article(full_url)
-            article_obj.download()
-            article_obj.parse()
-            detailed_summary = article_obj.text[:500]  # 提取文章内容的前500个字符作为详细摘要
-
-            latest_news.append({
-                "title": title,
-                "summary": summary,
-                "detailed_summary": detailed_summary,
-                "source": source["name"],
-                "date": date,
-                "url": full_url
-            })
-            print(f"✔ {source['name']} - {title} - {full_url}")
-
-# 遍历所有新闻网站
-for source in sources:
-    scrape_website(source)
-
-# 5. 只保留最新 20 条新闻
-latest_news = sorted(latest_news, key=lambda x: x["date"], reverse=True)[:20]
-
-# 6. 保存到 JSON
-def save_news_to_json(news):
-    with open("news.json", "w", encoding="utf-8") as file:
-        json.dump(news, file, indent=4, ensure_ascii=False)
-    print("✅ 新闻数据已保存到 news.json")
-
-save_news_to_json(latest_news)
-
-# 7. Git 提交更新
-def update_git_repo():
-    os.system("git add news.json")
-    os.system('git commit -m "更新新闻数据"')
-    os.system("git push origin main")
-    print("🚀 GitHub 已更新")
-
-update_git_repo()
-
-# 8. 关闭浏览器
-driver.quit()
+            # 使用 newspaper3k 提取文章内容
