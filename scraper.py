@@ -9,6 +9,7 @@ import json
 import os
 from urllib.parse import urljoin
 from datetime import datetime
+from newspaper import Article  # 引入 newspaper3k 库
 
 # 1. 设置 Chrome 配置，启用无头模式
 options = Options()
@@ -76,9 +77,16 @@ def scrape_website(source):
             summary = summary_tag.text.strip() if summary_tag else (title[:50] + "...")
             date = date_tag.text.strip() if date_tag else datetime.today().strftime("%Y-%m-%d")
 
+            # 使用 newspaper3k 提取文章内容和详细摘要
+            article_obj = Article(full_url)
+            article_obj.download()
+            article_obj.parse()
+            detailed_summary = article_obj.text[:500]  # 提取文章内容的前500个字符作为详细摘要
+
             latest_news.append({
                 "title": title,
                 "summary": summary,
+                "detailed_summary": detailed_summary,
                 "source": source["name"],
                 "date": date,
                 "url": full_url

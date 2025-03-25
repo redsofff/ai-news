@@ -22,14 +22,16 @@
     <script>
         async function fetchNews() {
             try {
+                // 从 GitHub 上加载最新的新闻 JSON 文件
                 const response = await fetch('https://raw.githubusercontent.com/redsofff/ai-news/main/news.json?t=' + new Date().getTime());
                 const news = await response.json();
                 const container = document.getElementById('news-container');
                 container.innerHTML = '';
 
+                // 只显示最新的 20 条新闻
                 news.slice(0, 20).forEach(item => {
-                    // 默认使用标题的前50个字符作为摘要（如果 `summary` 为空）
-                    const summaryText = item.summary && item.summary.trim() ? item.summary : (item.title.length > 50 ? item.title.slice(0, 50) + '...' : item.title);
+                    // 如果没有摘要，默认使用标题的前 200 个字符作为摘要
+                    const summaryText = item.summary && item.summary.trim() ? item.summary : (item.title.length > 200 ? item.title.slice(0, 200) + '...' : item.title);
                     
                     // 确保 `url` 字段正确（部分 JSON 可能用 `link` 而不是 `url`）
                     const newsUrl = item.url || item.link || '#';
