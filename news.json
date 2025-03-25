@@ -1,11 +1,18 @@
 [
     {
-        "title": "Browser Use, the tool making it easier for AI ‘agents’ to navigate websites, raises $17M",
-        "url": "https://techcrunch.com/2025/03/23/browser-use-the-tool-making-it-easier-for-ai-agents-to-navigate-websites-raises-17m/"
+        "source": "TechCrunch",
+        "title": "OpenAI says its AI voice assistant is now better to chat with",
+        "url": "https://techcrunch.com/2025/03/24/openai-says-its-ai-voice-assistant-is-now-better-to-chat-with/"
     },
     {
-        "title": "Meta has revenue sharing agreements with Llama AI model hosts, filing reveals",
-        "url": "https://techcrunch.com/2025/03/21/meta-has-revenue-sharing-agreements-with-llama-ai-model-hosts-filing-reveals/"
+        "source": "TechCrunch",
+        "title": "A new, challenging AGI test stumps most AI models",
+        "url": "https://techcrunch.com/2025/03/24/a-new-challenging-agi-test-stumps-most-ai-models/"
+    },
+    {
+        "source": "TechCrunch",
+        "title": "A Chinese tech giant says it slashed AI costs using only Chinese chips",
+        "url": "https://techcrunch.com/2025/03/24/a-chinese-tech-giant-says-it-slashed-ai-costs-using-only-chinese-chips/"
     },
     {
         "source": "TechCrunch",
@@ -73,7 +80,13 @@
         "url": "https://venturebeat.com/ai/anthropic-just-gave-claude-a-superpower-real-time-web-search-heres-why-it-changes-everything/"
     },
     {
-        "title": "Time is ticking! Vote for the TechCrunch Sessions: AI speaker you want to see",
-        "url": "https://techcrunch.com/2025/03/20/time-is-ticking-vote-for-the-techcrunch-sessions-ai-speaker-you-want-to-see/"
+        "source": "VentureBeat AI",
+        "title": "Hugging Face submits open-source blueprint, challenging Big Tech in White House AI policy fight",
+        "url": "https://venturebeat.com/ai/hugging-face-submits-open-source-blueprint-challenging-big-tech-in-white-house-ai-policy-fight/"
+    },
+    {
+        "source": "VentureBeat AI",
+        "title": "Nvidia’s Cosmos-Transfer1 makes robot training freakishly realistic—and that changes everything",
+        "url": "https://venturebeat.com/ai/nvidias-cosmos-transfer1-makes-robot-training-freakishly-realistic-and-that-changes-everything/"
     }
 ]
