@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>全球 AI 新闻动态</title>
+    <title> AI Daily</title>
     <style>
         body { font-family: Arial, sans-serif; max-width: 800px; margin: auto; padding: 20px; }
         h1 { text-align: center; }
@@ -14,7 +14,7 @@
     </style>
 </head>
 <body>
-    <h1>全球 AI 新闻动态</h1>
+    <h1> AI Daily</h1>
     <div id="news-container">加载中...</div>
 
     <script>
@@ -24,20 +24,25 @@
                 const news = await response.json();
                 const container = document.getElementById('news-container');
                 container.innerHTML = '';
-
+    
                 news.slice(0, 20).forEach(item => {
                     const div = document.createElement('div');
                     div.className = 'news-item';
-                    div.innerHTML = `<a href="${item.url}" target="_blank">${item.title}</a> <br> <small>${item.date}</small>`;
+                    div.innerHTML = `
+                        <a href="${item.url}" target="_blank">${item.title}</a> <br>
+                        <small>${item.summary || '暂无摘要'}</small><br>
+                        <small>${item.source} - ${item.date || '未知时间'}</small>
+                    `;
                     container.appendChild(div);
                 });
             } catch (error) {
                 document.getElementById('news-container').innerHTML = '加载新闻失败，请稍后重试。';
             }
         }
-
+    
         fetchNews();
         setInterval(fetchNews, 60000);
     </script>
+    
 </body>
 </html>

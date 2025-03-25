@@ -5,79 +5,86 @@ from selenium.webdriver.chrome.options import Options
 from webdriver_manager.chrome import ChromeDriverManager
 from bs4 import BeautifulSoup
 import time
-from urllib.parse import urljoin  # 导入 urljoin 来处理相对链接
 import json
 import os
+from urllib.parse import urljoin
 
 # 1. 设置 Chrome 配置，启用无头模式
 options = Options()
-options.add_argument("--headless")  # 无界面模式
-options.add_argument("--disable-gpu")  # 禁用 GPU 加速
-options.add_argument("--no-sandbox")  # 防止沙箱问题
-options.add_argument("--disable-dev-shm-usage")  # 避免共享内存问题
+options.add_argument("--headless")
+options.add_argument("--disable-gpu")
+options.add_argument("--no-sandbox")
+options.add_argument("--disable-dev-shm-usage")
 
 # 2. 启动 Chrome 浏览器
 driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
 
-# 3. 访问 TechCrunch AI 页面
-url = "https://techcrunch.com/category/artificial-intelligence/"
-driver.get(url)
+# 3. 定义要抓取的新闻网站及其解析逻辑
+sources = [
+    {
+        "name": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/",
+        "article_selector": "h3",
+        "link_selector": "a",
+        "base_url": "https://techcrunch.com",
+    },
+    {
+        "name": "MIT Tech Review",
+        "url": "https://www.technologyreview.com/topic/artificial-intelligence/",
+        "article_selector": ".story-item__title",
+        "link_selector": "a",
+        "base_url": "https://www.technologyreview.com",
+    },
+    {
+        "name": "VentureBeat AI",
+        "url": "https://venturebeat.com/category/ai/",
+        "article_selector": ".ArticleListing__title",
+        "link_selector": "a",
+        "base_url": "https://venturebeat.com",
+    },
+]
 
-# 4. 等待页面加载
-time.sleep(10)  # 你可以根据需要调整等待时间
+latest_news = []
 
-# 5. 获取 HTML 并解析
-soup = BeautifulSoup(driver.page_source, "html.parser")
-print(driver.page_source[:1000])  # 打印前 1000 个字符
+# 4. 爬取多个网站
+def scrape_website(source):
+    driver.get(source["url"])
+    time.sleep(5)  # 等待页面加载
+    soup = BeautifulSoup(driver.page_source, "html.parser")
 
-# 6. 查找新闻标题（你需要手动查看 HTML 结构）
-articles = soup.find_all("h3")  # 可能需要调整
+    articles = soup.select(source["article_selector"])
+    
+    if not articles:
+        print(f"❌ {source['name']} 未找到新闻")
+        return
 
-latest_news = []  # 用来存储抓取到的新闻数据
+    for article in articles[:10]:  # 每个站点最多抓取 10 条
+        link_tag = article.select_one(source["link_selector"])
+        if link_tag and "href" in link_tag.attrs:
+            full_url = urljoin(source["base_url"], link_tag["href"])
+            latest_news.append({"source": source["name"], "title": article.text.strip(), "url": full_url})
+            print(f"✔ {source['name']} - {article.text.strip()} - {full_url}")
 
-# 遍历并排除特定标题
-if articles:
-    for i, article in enumerate(articles[:23]):  # 获取前 23 条新闻
-        # 排除包含 "Topics" 或 "More from TechCrunch" 或具有特定类名的元素
-        if article.text.strip() == "Topics" or article.text.strip() == "More from TechCrunch" or "wp-block-query-title" in article.get("class", []):
-            continue  # 跳过不需要的标题
-        
-        # 提取链接
-        link = article.find("a")["href"]
-        
-        # 使用 urljoin 拼接完整的 URL
-        full_url = urljoin(url, link)  # `url` 是 TechCrunch 的基础 URL
-        
-        # 如果 full_url 仍然以 '/' 开头，则手动加上域名
-        if full_url.startswith("/"):
-            full_url = "https://techcrunch.com" + full_url
+# 遍历所有新闻网站
+for source in sources:
+    scrape_website(source)
 
-        # 将新闻保存到最新的新闻数据列表中
-        latest_news.append({"title": article.text.strip(), "url": full_url})
-
-        # 打印新闻标题和完整链接
-        print(f"{i+1}. {article.text.strip()} - {full_url}")
-else:
-    print("❌ 未找到任何新闻！")
-
-# 7. 保存新闻到 news.json 文件
+# 5. 保存到 JSON
 def save_news_to_json(news):
     with open("news.json", "w", encoding="utf-8") as file:
         json.dump(news, file, indent=4, ensure_ascii=False)
-    print("新闻数据已保存到 news.json")
+    print("✅ 新闻数据已保存到 news.json")
 
-# 调用保存函数
 save_news_to_json(latest_news)
 
-# 8. Git 提交和推送
+# 6. Git 提交更新
 def update_git_repo():
-    os.system("git add news.json")  # 添加 news.json 到 git
-    os.system('git commit -m "更新新闻数据"')  # 提交更改
-    os.system("git push origin main")  # 推送到远程仓库（确保你是推送到正确的分支）
-    print("GitHub 已更新")
+    os.system("git add news.json")
+    os.system('git commit -m "更新新闻数据"')
+    os.system("git push origin main")
+    print("🚀 GitHub 已更新")
 
-# 调用 Git 更新函数
 update_git_repo()
 
-# 9. 关闭浏览器
+# 7. 关闭浏览器
 driver.quit()
