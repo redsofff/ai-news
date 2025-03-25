@@ -8,6 +8,7 @@ import time
 import json
 import os
 from urllib.parse import urljoin
+from datetime import datetime
 
 # 1. 设置 Chrome 配置，启用无头模式
 options = Options()
@@ -25,6 +26,8 @@ sources = [
         "name": "TechCrunch",
         "url": "https://techcrunch.com/category/artificial-intelligence/",
         "article_selector": "h3",
+        "summary_selector": "p",
+        "date_selector": "time",
         "link_selector": "a",
         "base_url": "https://techcrunch.com",
     },
@@ -32,6 +35,8 @@ sources = [
         "name": "MIT Tech Review",
         "url": "https://www.technologyreview.com/topic/artificial-intelligence/",
         "article_selector": ".story-item__title",
+        "summary_selector": ".story-item__dek",
+        "date_selector": ".story-item__timestamp",
         "link_selector": "a",
         "base_url": "https://www.technologyreview.com",
     },
@@ -39,6 +44,8 @@ sources = [
         "name": "VentureBeat AI",
         "url": "https://venturebeat.com/category/ai/",
         "article_selector": ".ArticleListing__title",
+        "summary_selector": ".ArticleListing__excerpt",
+        "date_selector": ".ArticleListing__timestamp",
         "link_selector": "a",
         "base_url": "https://venturebeat.com",
     },
@@ -53,23 +60,39 @@ def scrape_website(source):
     soup = BeautifulSoup(driver.page_source, "html.parser")
 
     articles = soup.select(source["article_selector"])
-    
+
     if not articles:
         print(f"❌ {source['name']} 未找到新闻")
         return
 
     for article in articles[:10]:  # 每个站点最多抓取 10 条
         link_tag = article.select_one(source["link_selector"])
+        summary_tag = article.select_one(source["summary_selector"])
+        date_tag = article.select_one(source["date_selector"])
+
         if link_tag and "href" in link_tag.attrs:
             full_url = urljoin(source["base_url"], link_tag["href"])
-            latest_news.append({"source": source["name"], "title": article.text.strip(), "url": full_url})
-            print(f"✔ {source['name']} - {article.text.strip()} - {full_url}")
+            title = article.text.strip()
+            summary = summary_tag.text.strip() if summary_tag else (title[:50] + "...")
+            date = date_tag.text.strip() if date_tag else datetime.today().strftime("%Y-%m-%d")
+
+            latest_news.append({
+                "title": title,
+                "summary": summary,
+                "source": source["name"],
+                "date": date,
+                "url": full_url
+            })
+            print(f"✔ {source['name']} - {title} - {full_url}")
 
 # 遍历所有新闻网站
 for source in sources:
     scrape_website(source)
 
-# 5. 保存到 JSON
+# 5. 只保留最新 20 条新闻
+latest_news = sorted(latest_news, key=lambda x: x["date"], reverse=True)[:20]
+
+# 6. 保存到 JSON
 def save_news_to_json(news):
     with open("news.json", "w", encoding="utf-8") as file:
         json.dump(news, file, indent=4, ensure_ascii=False)
@@ -77,7 +100,7 @@ def save_news_to_json(news):
 
 save_news_to_json(latest_news)
 
-# 6. Git 提交更新
+# 7. Git 提交更新
 def update_git_repo():
     os.system("git add news.json")
     os.system('git commit -m "更新新闻数据"')
@@ -86,5 +109,5 @@ def update_git_repo():
 
 update_git_repo()
 
-# 7. 关闭浏览器
+# 8. 关闭浏览器
 driver.quit()
