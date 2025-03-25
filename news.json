@@ -1,92 +1,128 @@
 [
     {
-        "source": "TechCrunch",
         "title": "OpenAI says its AI voice assistant is now better to chat with",
+        "summary": "OpenAI says its AI voice assistant is now better t...",
+        "source": "TechCrunch",
+        "date": "2025-03-25",
         "url": "https://techcrunch.com/2025/03/24/openai-says-its-ai-voice-assistant-is-now-better-to-chat-with/"
     },
     {
-        "source": "TechCrunch",
         "title": "A new, challenging AGI test stumps most AI models",
+        "summary": "A new, challenging AGI test stumps most AI models...",
+        "source": "TechCrunch",
+        "date": "2025-03-25",
         "url": "https://techcrunch.com/2025/03/24/a-new-challenging-agi-test-stumps-most-ai-models/"
     },
     {
-        "source": "TechCrunch",
         "title": "A Chinese tech giant says it slashed AI costs using only Chinese chips",
+        "summary": "A Chinese tech giant says it slashed AI costs usin...",
+        "source": "TechCrunch",
+        "date": "2025-03-25",
         "url": "https://techcrunch.com/2025/03/24/a-chinese-tech-giant-says-it-slashed-ai-costs-using-only-chinese-chips/"
     },
     {
-        "source": "TechCrunch",
         "title": "a16z- and Benchmark-backed 11x has been claiming customers it doesn’t have",
+        "summary": "a16z- and Benchmark-backed 11x has been claiming c...",
+        "source": "TechCrunch",
+        "date": "2025-03-25",
         "url": "https://techcrunch.com/2025/03/24/a16z-and-benchmark-backed-11x-has-been-claiming-customers-it-doesnt-have/"
     },
     {
-        "source": "TechCrunch",
         "title": "Fair-code pioneer n8n raises $60M for AI-powered workflow automation",
+        "summary": "Fair-code pioneer n8n raises $60M for AI-powered w...",
+        "source": "TechCrunch",
+        "date": "2025-03-25",
         "url": "https://techcrunch.com/2025/03/24/fair-code-pioneer-n8n-raises-60m-for-ai-powered-workflow-automation/"
     },
     {
-        "source": "TechCrunch",
         "title": "AI creation platform Arcade expands from jewelry to home goods",
+        "summary": "AI creation platform Arcade expands from jewelry t...",
+        "source": "TechCrunch",
+        "date": "2025-03-25",
         "url": "https://techcrunch.com/2025/03/24/ai-creation-platform-arcade-expands-from-jewelry-to-home-goods/"
     },
     {
-        "source": "TechCrunch",
         "title": "Step into the spotlight: Apply to speak at TechCrunch Disrupt 2025",
+        "summary": "Step into the spotlight: Apply to speak at TechCru...",
+        "source": "TechCrunch",
+        "date": "2025-03-25",
         "url": "https://techcrunch.com/2025/03/24/step-into-the-spotlight-apply-to-speak-at-techcrunch-disrupt-2025/"
     },
     {
-        "source": "TechCrunch",
         "title": "AI chip startup FuriosaAI reportedly turns down $800M acquisition offer from Meta",
+        "summary": "AI chip startup FuriosaAI reportedly turns down $8...",
+        "source": "TechCrunch",
+        "date": "2025-03-25",
         "url": "https://techcrunch.com/2025/03/24/ai-chip-startup-furiosaai-reportedly-turns-down-800m-acquisition-offer-from-meta/"
     },
     {
-        "source": "VentureBeat AI",
         "title": "The high- and low-level context behind Nvidia CEO Jensen Huang’s GTC 2025 keynote | Dion Harris interview",
+        "summary": "The high- and low-level context behind Nvidia CEO ...",
+        "source": "VentureBeat AI",
+        "date": "2025-03-25",
         "url": "https://venturebeat.com/games/the-high-and-low-level-context-behind-nvidia-ceo-jensen-huangs-gtc-2025-keynote-dion-harris-interview/"
     },
     {
-        "source": "VentureBeat AI",
         "title": "‘Gradually then suddenly’: Is AI job displacement following this pattern?",
+        "summary": "‘Gradually then suddenly’: Is AI job displacement ...",
+        "source": "VentureBeat AI",
+        "date": "2025-03-25",
         "url": "https://venturebeat.com/ai/gradually-then-suddenly-is-ai-job-displacement-following-this-pattern/"
     },
     {
-        "source": "VentureBeat AI",
         "title": "The open-source AI debate: Why selective transparency poses a serious risk",
+        "summary": "The open-source AI debate: Why selective transpare...",
+        "source": "VentureBeat AI",
+        "date": "2025-03-25",
         "url": "https://venturebeat.com/ai/the-open-source-ai-debate-why-selective-transparency-poses-a-serious-risk/"
     },
     {
-        "source": "VentureBeat AI",
         "title": "Less is more: UC Berkeley and Google unlock LLM potential through simple sampling",
+        "summary": "Less is more: UC Berkeley and Google unlock LLM po...",
+        "source": "VentureBeat AI",
+        "date": "2025-03-25",
         "url": "https://venturebeat.com/ai/less-is-more-uc-berkeley-and-google-unlock-llm-potential-through-simple-sampling/"
     },
     {
-        "source": "VentureBeat AI",
         "title": "Small models as paralegals: LexisNexis distills models to build AI assistant",
+        "summary": "Small models as paralegals: LexisNexis distills mo...",
+        "source": "VentureBeat AI",
+        "date": "2025-03-25",
         "url": "https://venturebeat.com/ai/small-models-as-paralegals-lexisnexis-distills-models-to-build-ai-assistant/"
     },
     {
-        "source": "VentureBeat AI",
         "title": "OpenAI’s new voice AI model gpt-4o-transcribe lets you add speech to your existing text apps in seconds",
+        "summary": "OpenAI’s new voice AI model gpt-4o-transcribe lets...",
+        "source": "VentureBeat AI",
+        "date": "2025-03-25",
         "url": "https://venturebeat.com/ai/openais-new-voice-ai-models-gpt-4o-transcribe-let-you-add-speech-to-your-existing-text-apps-in-seconds/"
     },
     {
-        "source": "VentureBeat AI",
         "title": "Speed is King: How Google’s $32B Wiz play rewrites DevOps security rules",
+        "summary": "Speed is King: How Google’s $32B Wiz play rewrites...",
+        "source": "VentureBeat AI",
+        "date": "2025-03-25",
         "url": "https://venturebeat.com/security/googles-32b-wiz-bet-ai-driven-cnapp-will-finally-eliminate-devsecops-bottlenecks/"
     },
     {
-        "source": "VentureBeat AI",
         "title": "Anthropic just gave Claude a superpower: real-time web search. Here’s why it changes everything",
+        "summary": "Anthropic just gave Claude a superpower: real-time...",
+        "source": "VentureBeat AI",
+        "date": "2025-03-25",
         "url": "https://venturebeat.com/ai/anthropic-just-gave-claude-a-superpower-real-time-web-search-heres-why-it-changes-everything/"
     },
     {
-        "source": "VentureBeat AI",
         "title": "Hugging Face submits open-source blueprint, challenging Big Tech in White House AI policy fight",
+        "summary": "Hugging Face submits open-source blueprint, challe...",
+        "source": "VentureBeat AI",
+        "date": "2025-03-25",
         "url": "https://venturebeat.com/ai/hugging-face-submits-open-source-blueprint-challenging-big-tech-in-white-house-ai-policy-fight/"
     },
     {
-        "source": "VentureBeat AI",
         "title": "Nvidia’s Cosmos-Transfer1 makes robot training freakishly realistic—and that changes everything",
+        "summary": "Nvidia’s Cosmos-Transfer1 makes robot training fre...",
+        "source": "VentureBeat AI",
+        "date": "2025-03-25",
         "url": "https://venturebeat.com/ai/nvidias-cosmos-transfer1-makes-robot-training-freakishly-realistic-and-that-changes-everything/"
     }
 ]
