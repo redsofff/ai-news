@@ -10,59 +10,46 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    # 1. Checkout the code
+    # 1. 检出代码
     - name: Checkout code
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
 
-    # 2. Check current working directory
-    - name: Check current directory  # 检查当前工作目录
+    # 2. 检查当前目录
+    - name: Check current directory
       run: pwd
 
-    # 3. Set up Python environment
+    # 3. 设置 Python 环境
     - name: Set up Python
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v4
       with:
-        python-version: '3.x'  # 设置 Python 版本
+        python-version: '3.9'
 
-    # 4. Install dependencies
+    # 4. 安装依赖
     - name: Install dependencies
       run: |
-        pwd  # 输出当前目录，确保在正确的目录下
-        ls -la  # 列出文件，确保 requirements.txt 存在
-        pip install -r requirements.txt  # 安装依赖项
+        pwd  # 确保在正确的目录
+        ls -la  # 确保 requirements.txt 存在
+        pip install -r requirements.txt  # 安装依赖
 
-    # 5. Run the scraper
-    - name: Run the scraper  # 运行爬虫脚本
+    # 5. 运行爬虫脚本
+    - name: Run the scraper
       run: python3 scraper.py
 
-    # 6. Prepare commit
-    - name: Prepare commit
+    # 6. 配置 Git
+    - name: Configure Git
       run: |
         git config --global user.name "github-actions"
         git config --global user.email "github-actions@users.noreply.github.com"
 
-        git status  # 查看更改状态
-        git stash || echo "Nothing to stash"  # 处理未提交的更改，防止 pull 失败
-        git pull --rebase origin main || echo "Pull failed, continuing..."  # 拉取最新代码，避免冲突
-        git stash pop || echo "Nothing to pop"  # 恢复暂存区的更改
-
-    # 7. Commit changes if any
+    # 7. 检查并提交更改
     - name: Commit changes
       run: |
-        if [ -f "news.json" ]; then  # 确保 news.json 存在再提交
-          git add news.json  # 添加修改
-          git commit -m "更新新闻数据" || echo "No changes to commit"  # 如果没有更改，跳过提交
+        if git diff --quiet && git diff --staged --quiet; then
+          echo "No changes to commit"
         else
-          echo "news.json 文件不存在，跳过提交"  # 如果没有生成文件，跳过提交
+          git add news.json
+          git commit -m "更新新闻数据"
+          git push origin main
         fi
-
-    # 8. Push changes to GitHub
-    - name: Push changes
-  env:
-    GH_TOKEN: ${{ secrets.GH_TOKEN }}  # 访问 GitHub Secrets 获取 Token
-  run: |
-    git config --global user.name "github-actions"
-    git config --global user.email "github-actions@users.noreply.github.com"
-    git remote set-url origin https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/redsofff/ai-news.git
-    git pull origin main --rebase
-    git push origin main
+      env:
+        GH_TOKEN: ${{ secrets.GH_TOKEN }}
