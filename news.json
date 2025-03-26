@@ -1,146 +1,212 @@
 [
     {
+        "title": "Microsoft adds AI-powered deep research tools to Copilot",
+        "summary": "Microsoft is introducing a “deep research” AI-powered tool in Microsoft 365 Copilot, its AI chatbot app.\n\nThere’s been a raft of deep research agents launched recently across chatbots, including OpenA",
+        "url": "https://techcrunch.com/2025/03/25/microsoft-adds-ai-powered-deep-research-tools-to-copilot/",
+        "date": "2025-03-25T19:45:00-07:00",
+        "source": "TechCrunch"
+    },
+    {
+        "title": "Earth AI’s algorithms found critical minerals in places everyone else ignored",
+        "summary": "Last summer, mining startup KoBold made a splash when it said it had discovered in Zambia one of the world’s largest copper deposits in more than a decade.\n\nNow, another startup, Earth AI, exclusively",
+        "url": "https://techcrunch.com/2025/03/25/earth-ais-algorithms-found-critical-minerals-in-places-everyone-else-ignored/",
+        "date": "2025-03-25T12:05:30-07:00",
+        "source": "TechCrunch"
+    },
+    {
+        "title": "ChatGPT’s image-generation feature gets an upgrade",
+        "summary": "During a livestream on Tuesday, OpenAI CEO Sam Altman announced the first major upgrade to ChatGPT’s image-generation capabilities in over a year.\n\nChatGPT can now leverage the company’s GPT-4o model ",
+        "url": "https://techcrunch.com/2025/03/25/chatgpts-image-generation-feature-gets-an-upgrade/",
+        "date": "2025-03-25T11:32:40-07:00",
+        "source": "TechCrunch"
+    },
+    {
+        "title": "Google unveils a next-gen family of AI reasoning models",
+        "summary": "On Tuesday, Google unveiled Gemini 2.5, a new family of AI reasoning models that pauses to “think” before answering a question.\n\nTo kick off the new family of models, Google is launching Gemini 2.5 Pr",
+        "url": "https://techcrunch.com/2025/03/25/google-unveils-a-next-gen-ai-reasoning-model/",
+        "date": "2025-03-25T10:00:00-07:00",
+        "source": "TechCrunch"
+    },
+    {
+        "title": "Quora’s Poe launches its most affordable subscription plan for $5/month",
+        "summary": "Poe, Quora’s chatbot app, launched one of its most affordable subscription options on Tuesday, priced at just $5 per month.\n\nIn addition, the company introduced its highest-priced plan at $250 per mon",
+        "url": "https://techcrunch.com/2025/03/25/quoras-poe-now-offers-an-affordable-subscription-plan-for-5-month/",
+        "date": "2025-03-25T09:53:10-07:00",
+        "source": "TechCrunch"
+    },
+    {
+        "title": "Cerebras Systems’ IPO is further delayed",
+        "summary": "In Brief\n\nAI chipmaking company Cerebras Systems’ IPO is delayed again as the public listing’s national security review drags on.\n\nCerebras, which originally filed its intent to IPO in September 2024,",
+        "url": "https://techcrunch.com/2025/03/25/cerebras-systems-ipo-is-further-delayed/",
+        "date": "2025-03-25T09:47:28-07:00",
+        "source": "TechCrunch"
+    },
+    {
+        "title": "Outreach founder Manny Medina has a new startup that helps AI agents get paid",
+        "summary": "As the year of the AI agent takes shape, a new trend is emerging: startups offering the picks and shovels that help employers build a workforce of bots.\n\nManny Medina, best known as the founder and fo",
+        "url": "https://techcrunch.com/2025/03/25/outreach-founder-manny-medina-has-a-new-startup-that-helps-ai-agents-get-paid/",
+        "date": "2025-03-25T08:00:00-07:00",
+        "source": "TechCrunch"
+    },
+    {
+        "title": "Plural’s platform allows enterprises to manage their Kubernetes clusters in one place",
+        "summary": "When Sam Weaver was vice president of product management at Unqork, he realized that the company needed a better way to manage its sprawling network of Kubernetes clusters — which are groups of comput",
+        "url": "https://techcrunch.com/2025/03/25/plurals-platform-allows-enterprises-to-manage-their-kubernetes-clusters-in-one-place/",
+        "date": "2025-03-25T07:00:00-07:00",
+        "source": "TechCrunch"
+    },
+    {
         "title": "OpenAI says its AI voice assistant is now better to chat with",
-        "summary": "OpenAI says its AI voice assistant is now better t...",
-        "detailed_summary": "OpenAI released updates Monday for Advanced Voice Mode, its AI voice feature that enables real-time conversations in ChatGPT, to make the AI assistant more personable and interrupt users less frequent",
-        "source": "TechCrunch",
-        "date": "2025-03-25",
-        "url": "https://techcrunch.com/2025/03/24/openai-says-its-ai-voice-assistant-is-now-better-to-chat-with/"
+        "summary": "OpenAI released updates Monday for Advanced Voice Mode, its AI voice feature that enables real-time conversations in ChatGPT, to make the AI assistant more personable and interrupt users less frequent",
+        "url": "https://techcrunch.com/2025/03/24/openai-says-its-ai-voice-assistant-is-now-better-to-chat-with/",
+        "date": "2025-03-24T18:10:22-07:00",
+        "source": "TechCrunch"
     },
     {
         "title": "A new, challenging AGI test stumps most AI models",
-        "summary": "A new, challenging AGI test stumps most AI models...",
-        "detailed_summary": "The Arc Prize Foundation, a nonprofit co-founded by prominent AI researcher François Chollet, announced in a blog post on Monday that it has created a new, challenging test to measure the general inte",
-        "source": "TechCrunch",
-        "date": "2025-03-25",
-        "url": "https://techcrunch.com/2025/03/24/a-new-challenging-agi-test-stumps-most-ai-models/"
+        "summary": "The Arc Prize Foundation, a nonprofit co-founded by prominent AI researcher François Chollet, announced in a blog post on Monday that it has created a new, challenging test to measure the general inte",
+        "url": "https://techcrunch.com/2025/03/24/a-new-challenging-agi-test-stumps-most-ai-models/",
+        "date": "2025-03-24T17:29:53-07:00",
+        "source": "TechCrunch"
     },
     {
-        "title": "A Chinese tech giant says it slashed AI costs using only Chinese chips",
-        "summary": "A Chinese tech giant says it slashed AI costs usin...",
-        "detailed_summary": "In Brief\n\nEarlier this year, DeepSeek briefly crashed Nvidia’s stock because of speculation that its models require far fewer chips.\n\nNow, Chinese fintech giant Ant Group, which is backed by Alibaba f",
-        "source": "TechCrunch",
-        "date": "2025-03-25",
-        "url": "https://techcrunch.com/2025/03/24/a-chinese-tech-giant-says-it-slashed-ai-costs-using-only-chinese-chips/"
+        "title": "OpenAI’s new image generator aims to be practical enough for designers and advertisers",
+        "summary": "The new model makes progress on technical issues that have plagued AI image generators for years. While most have been great at creating fantastical images or realistic deepfakes, they’ve been terribl",
+        "url": "https://www.technologyreview.com/2025/03/25/1113745/openais-new-image-generator-aims-to-be-practical-enough-for-designers-and-advertisers/",
+        "date": "2025-03-26",
+        "source": "MIT Tech Review"
     },
     {
-        "title": "a16z- and Benchmark-backed 11x has been claiming customers it doesn’t have",
-        "summary": "a16z- and Benchmark-backed 11x has been claiming c...",
-        "detailed_summary": "Last year, AI-powered sales automation startup 11x appeared to be on an explosive growth trajectory.\n\nHowever, nearly two dozen sources — including investors and current and former employees — told Te",
-        "source": "TechCrunch",
-        "date": "2025-03-25",
-        "url": "https://techcrunch.com/2025/03/24/a16z-and-benchmark-backed-11x-has-been-claiming-customers-it-doesnt-have/"
+        "title": "Why the world is looking to ditch US AI models",
+        "summary": "As a result, some policymakers and business leaders—in Europe, in particular—are reconsidering their reliance on US-based tech and asking whether they can quickly spin up better, homegrown alternative",
+        "url": "https://www.technologyreview.com/2025/03/25/1113696/why-the-world-is-looking-to-ditch-us-ai-models/",
+        "date": "2025-03-26",
+        "source": "MIT Tech Review"
     },
     {
-        "title": "Fair-code pioneer n8n raises $60M for AI-powered workflow automation",
-        "summary": "Fair-code pioneer n8n raises $60M for AI-powered w...",
-        "detailed_summary": "Developer tooling is changing rapidly with AI. So companies that are making it easier to adopt AI in their workflows are seeing a boom of attention. After a startup called n8n (pronounced “enay-ten”) ",
-        "source": "TechCrunch",
-        "date": "2025-03-25",
-        "url": "https://techcrunch.com/2025/03/24/fair-code-pioneer-n8n-raises-60m-for-ai-powered-workflow-automation/"
+        "title": "Why handing over total control to AI agents would be a huge mistake",
+        "summary": "These developments mark a major advance in artificial intelligence: systems designed to operate in the digital world without direct human oversight.\n\nThe promise is compelling. Who doesn’t want assist",
+        "url": "https://www.technologyreview.com/2025/03/24/1113647/why-handing-over-total-control-to-ai-agents-would-be-a-huge-mistake/",
+        "date": "2025-03-26",
+        "source": "MIT Tech Review"
     },
     {
-        "title": "AI creation platform Arcade expands from jewelry to home goods",
-        "summary": "AI creation platform Arcade expands from jewelry t...",
-        "detailed_summary": "Arcade, a generative AI marketplace for designing jewelry, is expanding its offerings to include home goods, starting with rugs.\n\nThe company on Monday also introduced a new feature called “Match My R",
-        "source": "TechCrunch",
-        "date": "2025-03-25",
-        "url": "https://techcrunch.com/2025/03/24/ai-creation-platform-arcade-expands-from-jewelry-to-home-goods/"
+        "title": "OpenAI has released its first research into how using ChatGPT affects people’s emotional well-being",
+        "summary": "The researchers found some intriguing differences between how men and women respond to using ChatGPT. After using the chatbot for four weeks, female study participants were slightly less likely to soc",
+        "url": "https://www.technologyreview.com/2025/03/21/1113635/openai-has-released-its-first-research-into-how-using-chatgpt-affects-peoples-emotional-wellbeing/",
+        "date": "2025-03-26",
+        "source": "MIT Tech Review"
     },
     {
-        "title": "Step into the spotlight: Apply to speak at TechCrunch Disrupt 2025",
-        "summary": "Step into the spotlight: Apply to speak at TechCru...",
-        "detailed_summary": "Calling all tech innovators, startup fanatics, marketing gurus, and emerging VCs — this is your moment! You’ve waited long enough, and now the time has come to step into the spotlight at TechCrunch Di",
-        "source": "TechCrunch",
-        "date": "2025-03-25",
-        "url": "https://techcrunch.com/2025/03/24/step-into-the-spotlight-apply-to-speak-at-techcrunch-disrupt-2025/"
+        "title": "Powering the food industry with AI",
+        "summary": "But despite this promise, industry adoption still lags. Data-sharing remains limited and companies across the value chain have vastly different needs and capabilities. There are also few standards and",
+        "url": "https://www.technologyreview.com/2025/03/19/1112920/powering-the-food-industry-with-ai/",
+        "date": "2025-03-26",
+        "source": "MIT Tech Review"
     },
     {
-        "title": "AI chip startup FuriosaAI reportedly turns down $800M acquisition offer from Meta",
-        "summary": "AI chip startup FuriosaAI reportedly turns down $8...",
-        "detailed_summary": "In Brief\n\nFuriosaAI, a South Korean startup that makes chips for AI applications, has rejected an $800 million acquisition offer from Meta, opting instead to focus on developing and producing its AI c",
-        "source": "TechCrunch",
-        "date": "2025-03-25",
-        "url": "https://techcrunch.com/2025/03/24/ai-chip-startup-furiosaai-reportedly-turns-down-800m-acquisition-offer-from-meta/"
+        "title": "When you might start speaking to robots",
+        "summary": "Gemini Robotics fuses the power of large language models with spatial reasoning, allowing you to tell a robotic arm to do something like “put the grapes in the clear glass bowl.” These commands get fi",
+        "url": "https://www.technologyreview.com/2025/03/18/1113271/when-you-might-start-speaking-to-robots/",
+        "date": "2025-03-26",
+        "source": "MIT Tech Review"
+    },
+    {
+        "title": "Is Google playing catchup on search with OpenAI?",
+        "summary": "Take AI Mode, which it announced March 5. It’s cool. It works well. But it’s pretty much a follow-along of what OpenAI was already doing. (Also, don’t be confused by the name. Google already had somet",
+        "url": "https://www.technologyreview.com/2025/03/17/1113255/is-google-playing-catchup-on-search-with-openai/",
+        "date": "2025-03-26",
+        "source": "MIT Tech Review"
+    },
+    {
+        "title": "Gemini Robotics uses Google’s top language model to make robots more useful",
+        "summary": "Although the robot wasn’t perfect at following instructions, and the videos show it is quite slow and a little janky, the ability to adapt on the fly—and understand natural-language commands— is reall",
+        "url": "https://www.technologyreview.com/2025/03/12/1113178/gemini-robotics-uses-googles-top-language-model-to-make-robots-more-useful/",
+        "date": "2025-03-26",
+        "source": "MIT Tech Review"
+    },
+    {
+        "title": "Everyone in AI is talking about Manus. We put it to the test.",
+        "summary": "Despite all the hype, very few people have had a chance to use it. Currently, under 1% of the users on the wait list have received an invite code. (It’s unclear how many people are on this list, but f",
+        "url": "https://www.technologyreview.com/2025/03/11/1113133/manus-ai-review/",
+        "date": "2025-03-26",
+        "source": "MIT Tech Review"
+    },
+    {
+        "title": "Waabi says its virtual robotrucks are realistic enough to prove the real ones are safe",
+        "summary": "“It brings accountability to the industry,” says Raquel Urtasun, Waabi’s firebrand founder and CEO (who is also a professor at the University of Toronto). “There are no more excuses.”\n\nAfter quitting ",
+        "url": "https://www.technologyreview.com/2025/03/11/1113044/waabi-says-its-virtual-robotrucks-are-realistic-enough-to-prove-the-real-ones-are-safe/",
+        "date": "2025-03-26",
+        "source": "MIT Tech Review"
+    },
+    {
+        "title": "Google releases ‘most intelligent model to date,’ Gemini 2.5 Pro",
+        "summary": "Join our daily and weekly newsletters for the latest updates and exclusive content on industry-leading AI coverage. Learn More\n\nJust a few months after releasing Gemini 2.0 and the rise of DeepSeek, G",
+        "url": "https://venturebeat.com/ai/google-releases-most-intelligent-model-to-date-gemini-2-5-pro/",
+        "date": "2025-03-26",
+        "source": "VentureBeat AI"
+    },
+    {
+        "title": "‘Insane’: OpenAI introduces GPT-4o native image generation and it’s already wowing users",
+        "summary": "Join our daily and weekly newsletters for the latest updates and exclusive content on industry-leading AI coverage. Learn More\n\nWe’re coming up on the one year anniversary since OpenAI released its fi",
+        "url": "https://venturebeat.com/ai/insane-openai-introduces-gpt-4o-native-image-generation-and-its-already-wowing-users/",
+        "date": "2025-03-26",
+        "source": "VentureBeat AI"
+    },
+    {
+        "title": "The new best AI image generation model is here: say hello to Reve Image 1.0!",
+        "summary": "Join our daily and weekly newsletters for the latest updates and exclusive content on industry-leading AI coverage. Learn More\n\nReve AI, Inc., an AI startup based in Palo Alto, California, has officia",
+        "url": "https://venturebeat.com/ai/the-new-best-ai-image-generation-model-is-here-say-hello-to-reve-image-1-0/",
+        "date": "2025-03-26",
+        "source": "VentureBeat AI"
+    },
+    {
+        "title": "Agentic AI is changing online meeting platforms: Moving from silent observer to active participant",
+        "summary": "Join our daily and weekly newsletters for the latest updates and exclusive content on industry-leading AI coverage. Learn More\n\nOnline meetings used to be much the same as their physical world counter",
+        "url": "https://venturebeat.com/ai/beyond-transcription-how-agentic-ai-is-set-to-change-enterprise-meetings/",
+        "date": "2025-03-26",
+        "source": "VentureBeat AI"
+    },
+    {
+        "title": "Security teams can respond 80% faster to events with Cyberhaven’s AI-powered data lineage tools",
+        "summary": "Join our daily and weekly newsletters for the latest updates and exclusive content on industry-leading AI coverage. Learn More\n\nEnterprise workers are eager to take advantage of AI tools — whether the",
+        "url": "https://venturebeat.com/security/security-teams-can-respond-80-faster-to-events-with-cyberhavens-ai-powered-data-lineage-tools/",
+        "date": "2025-03-26",
+        "source": "VentureBeat AI"
+    },
+    {
+        "title": "From alerts to autonomy: How leading SOCs use AI copilots to fight signal overload and staffing shortfalls",
+        "summary": "Join our daily and weekly newsletters for the latest updates and exclusive content on industry-leading AI coverage. Learn More\n\nThanks to the rapid advances in AI-powered security copilots, security o",
+        "url": "https://venturebeat.com/security/ai-copilots-cut-false-positives-and-burnout-in-overworked-socs/",
+        "date": "2025-03-26",
+        "source": "VentureBeat AI"
+    },
+    {
+        "title": "Midjourney’s surprise: new research on making LLMs write more creatively",
+        "summary": "Join our daily and weekly newsletters for the latest updates and exclusive content on industry-leading AI coverage. Learn More\n\nMidjourney is best known as one of the leading AI image generators — wit",
+        "url": "https://venturebeat.com/ai/midjourneys-surprise-new-research-on-making-llms-write-more-creatively/",
+        "date": "2025-03-26",
+        "source": "VentureBeat AI"
+    },
+    {
+        "title": "DeepSeek-V3 now runs at 20 tokens per second on Mac Studio, and that’s a nightmare for OpenAI",
+        "summary": "Join our daily and weekly newsletters for the latest updates and exclusive content on industry-leading AI coverage. Learn More\n\nChinese AI startup DeepSeek has quietly released a new large language mo",
+        "url": "https://venturebeat.com/ai/deepseek-v3-now-runs-at-20-tokens-per-second-on-mac-studio-and-thats-a-nightmare-for-openai/",
+        "date": "2025-03-26",
+        "source": "VentureBeat AI"
     },
     {
         "title": "The high- and low-level context behind Nvidia CEO Jensen Huang’s GTC 2025 keynote | Dion Harris interview",
-        "summary": "The high- and low-level context behind Nvidia CEO ...",
-        "detailed_summary": "Jensen Huang, CEO of Nvidia, hit a lot of high concepts and low-level tech speak at his GTC 2025 keynote speech last Tuesday at the sprawling SAP Center in San Jose, California. My big takeaway was th",
-        "source": "VentureBeat AI",
-        "date": "2025-03-25",
-        "url": "https://venturebeat.com/games/the-high-and-low-level-context-behind-nvidia-ceo-jensen-huangs-gtc-2025-keynote-dion-harris-interview/"
+        "summary": "Jensen Huang, CEO of Nvidia, hit a lot of high concepts and low-level tech speak at his GTC 2025 keynote speech last Tuesday at the sprawling SAP Center in San Jose, California. My big takeaway was th",
+        "url": "https://venturebeat.com/games/the-high-and-low-level-context-behind-nvidia-ceo-jensen-huangs-gtc-2025-keynote-dion-harris-interview/",
+        "date": "2025-03-26",
+        "source": "VentureBeat AI"
     },
     {
         "title": "‘Gradually then suddenly’: Is AI job displacement following this pattern?",
-        "summary": "‘Gradually then suddenly’: Is AI job displacement ...",
-        "detailed_summary": "Join our daily and weekly newsletters for the latest updates and exclusive content on industry-leading AI coverage. Learn More\n\nWhether by automating tasks, serving as copilots or generating text, ima",
-        "source": "VentureBeat AI",
-        "date": "2025-03-25",
-        "url": "https://venturebeat.com/ai/gradually-then-suddenly-is-ai-job-displacement-following-this-pattern/"
-    },
-    {
-        "title": "The open-source AI debate: Why selective transparency poses a serious risk",
-        "summary": "The open-source AI debate: Why selective transpare...",
-        "detailed_summary": "Join our daily and weekly newsletters for the latest updates and exclusive content on industry-leading AI coverage. Learn More\n\nAs tech giants declare their AI releases open — and even put the word in",
-        "source": "VentureBeat AI",
-        "date": "2025-03-25",
-        "url": "https://venturebeat.com/ai/the-open-source-ai-debate-why-selective-transparency-poses-a-serious-risk/"
-    },
-    {
-        "title": "Less is more: UC Berkeley and Google unlock LLM potential through simple sampling",
-        "summary": "Less is more: UC Berkeley and Google unlock LLM po...",
-        "detailed_summary": "Join our daily and weekly newsletters for the latest updates and exclusive content on industry-leading AI coverage. Learn More\n\nA new paper by researchers from Google Research and the University of Ca",
-        "source": "VentureBeat AI",
-        "date": "2025-03-25",
-        "url": "https://venturebeat.com/ai/less-is-more-uc-berkeley-and-google-unlock-llm-potential-through-simple-sampling/"
-    },
-    {
-        "title": "Small models as paralegals: LexisNexis distills models to build AI assistant",
-        "summary": "Small models as paralegals: LexisNexis distills mo...",
-        "detailed_summary": "Join our daily and weekly newsletters for the latest updates and exclusive content on industry-leading AI coverage. Learn More\n\nWhen legal research company LexisNexis created its AI assistant Protégé,",
-        "source": "VentureBeat AI",
-        "date": "2025-03-25",
-        "url": "https://venturebeat.com/ai/small-models-as-paralegals-lexisnexis-distills-models-to-build-ai-assistant/"
-    },
-    {
-        "title": "OpenAI’s new voice AI model gpt-4o-transcribe lets you add speech to your existing text apps in seconds",
-        "summary": "OpenAI’s new voice AI model gpt-4o-transcribe lets...",
-        "detailed_summary": "Join our daily and weekly newsletters for the latest updates and exclusive content on industry-leading AI coverage. Learn More\n\nOpenAI‘s voice AI models have gotten it into trouble before with actor S",
-        "source": "VentureBeat AI",
-        "date": "2025-03-25",
-        "url": "https://venturebeat.com/ai/openais-new-voice-ai-models-gpt-4o-transcribe-let-you-add-speech-to-your-existing-text-apps-in-seconds/"
-    },
-    {
-        "title": "Speed is King: How Google’s $32B Wiz play rewrites DevOps security rules",
-        "summary": "Speed is King: How Google’s $32B Wiz play rewrites...",
-        "detailed_summary": "Join our daily and weekly newsletters for the latest updates and exclusive content on industry-leading AI coverage. Learn More\n\nThe real story: Speed and Security at DevOps scale\n\nThe real story behin",
-        "source": "VentureBeat AI",
-        "date": "2025-03-25",
-        "url": "https://venturebeat.com/security/googles-32b-wiz-bet-ai-driven-cnapp-will-finally-eliminate-devsecops-bottlenecks/"
-    },
-    {
-        "title": "Anthropic just gave Claude a superpower: real-time web search. Here’s why it changes everything",
-        "summary": "Anthropic just gave Claude a superpower: real-time...",
-        "detailed_summary": "Join our daily and weekly newsletters for the latest updates and exclusive content on industry-leading AI coverage. Learn More\n\nAnthropic announced today that its AI assistant Claude can now search an",
-        "source": "VentureBeat AI",
-        "date": "2025-03-25",
-        "url": "https://venturebeat.com/ai/anthropic-just-gave-claude-a-superpower-real-time-web-search-heres-why-it-changes-everything/"
-    },
-    {
-        "title": "Hugging Face submits open-source blueprint, challenging Big Tech in White House AI policy fight",
-        "summary": "Hugging Face submits open-source blueprint, challe...",
-        "detailed_summary": "Join our daily and weekly newsletters for the latest updates and exclusive content on industry-leading AI coverage. Learn More\n\nIn a Washington policy landscape increasingly dominated by calls for min",
-        "source": "VentureBeat AI",
-        "date": "2025-03-25",
-        "url": "https://venturebeat.com/ai/hugging-face-submits-open-source-blueprint-challenging-big-tech-in-white-house-ai-policy-fight/"
-    },
-    {
-        "title": "Nvidia’s Cosmos-Transfer1 makes robot training freakishly realistic—and that changes everything",
-        "summary": "Nvidia’s Cosmos-Transfer1 makes robot training fre...",
-        "detailed_summary": "Join our daily and weekly newsletters for the latest updates and exclusive content on industry-leading AI coverage. Learn More\n\nNvidia has released Cosmos-Transfer1, an innovative AI model that enable",
-        "source": "VentureBeat AI",
-        "date": "2025-03-25",
-        "url": "https://venturebeat.com/ai/nvidias-cosmos-transfer1-makes-robot-training-freakishly-realistic-and-that-changes-everything/"
+        "summary": "Join our daily and weekly newsletters for the latest updates and exclusive content on industry-leading AI coverage. Learn More\n\nWhether by automating tasks, serving as copilots or generating text, ima",
+        "url": "https://venturebeat.com/ai/gradually-then-suddenly-is-ai-job-displacement-following-this-pattern/",
+        "date": "2025-03-26",
+        "source": "VentureBeat AI"
     }
 ]

@@ -9,120 +9,107 @@ import json
 import os
 from urllib.parse import urljoin
 from datetime import datetime
-from newspaper import Article  # 引入 newspaper3k 库
+from newspaper import Article
 
-# 1. 设置 Chrome 配置，启用无头模式
+# 设置 Chrome 配置，启用无头模式
 options = Options()
 options.add_argument("--headless")
 options.add_argument("--disable-gpu")
 options.add_argument("--no-sandbox")
 options.add_argument("--disable-dev-shm-usage")
+options.add_argument("--remote-debugging-port=9222")
 
-# 2. 启动 Chrome 浏览器
+# 启动 Chrome 浏览器
 driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
 
-# 3. 定义要抓取的新闻网站及其解析逻辑
+# 定义要抓取的新闻网站及其解析逻辑
 sources = [
     {
         "name": "TechCrunch",
         "url": "https://techcrunch.com/category/artificial-intelligence/",
-        "article_selector": "h3",
-        "summary_selector": "p",
+        "article_selector": "h3.loop-card__title a",
+        "summary_selector": "",
         "date_selector": "time",
-        "link_selector": "a",
+        "link_selector": "h3.loop-card__title a",
         "base_url": "https://techcrunch.com",
     },
     {
         "name": "MIT Tech Review",
         "url": "https://www.technologyreview.com/topic/artificial-intelligence/",
-        "article_selector": ".story-item__title",
-        "summary_selector": ".story-item__dek",
-        "date_selector": ".story-item__timestamp",
-        "link_selector": "a",
+        "article_selector": "a[data-event-label='topic-story'] h3",
+        "summary_selector": "div.homepageStoryCard__dek--7c9e3c85841df43b5fb2385cdf2b46e3 p",
+        "date_selector": "div[data-immersive-translate-walked] time",
+        "link_selector": "a[data-event-label='topic-story']",
         "base_url": "https://www.technologyreview.com",
     },
     {
         "name": "VentureBeat AI",
         "url": "https://venturebeat.com/category/ai/",
-        "article_selector": ".ArticleListing__title",
+        "article_selector": ".ArticleListing__title a",
         "summary_selector": ".ArticleListing__excerpt",
         "date_selector": ".ArticleListing__timestamp",
-        "link_selector": "a",
+        "link_selector": ".ArticleListing__title a",
         "base_url": "https://venturebeat.com",
     },
 ]
 
 latest_news = []
 
-# 4. 使用 newspaper3k 提取文章内容和摘要
-def extract_summary(url):
-    article = Article(url)
-    article.download()
-    article.parse()
-    return article.text[:200]  # 取文章前200个字符作为摘要
-
-# 5. 爬取多个网站
 def scrape_website(source):
     driver.get(source["url"])
-    time.sleep(5)  # 等待页面加载
+    time.sleep(5)
     soup = BeautifulSoup(driver.page_source, "html.parser")
-
     articles = soup.select(source["article_selector"])
 
     if not articles:
         print(f"❌ {source['name']} 未找到新闻")
         return
 
-    for article in articles[:10]:  # 每个站点最多抓取 10 条
-        link_tag = article.select_one(source["link_selector"])
-        summary_tag = article.select_one(source["summary_selector"])
-        date_tag = article.select_one(source["date_selector"])
+    for article in articles[:10]:
+        link_tag = article.find_parent("a") if article.name == "h3" else article
+        if link_tag:
+            summary_tag = link_tag.find_next(source["summary_selector"]) if source["summary_selector"] else None
+            date_tag = link_tag.find_next(source["date_selector"]) if source["date_selector"] else None
 
-        if link_tag and "href" in link_tag.attrs:
-            full_url = urljoin(source["base_url"], link_tag["href"])
-            title = article.text.strip()
+            if "href" in link_tag.attrs:
+                full_url = urljoin(source["base_url"], link_tag["href"])
+                title = article.get_text(strip=True)
 
-            # 使用 newspaper3k 提取文章摘要
-            summary = extract_summary(full_url)
+                summary = ""
+                if summary_tag:
+                    summary = summary_tag.get_text(strip=True)
+                else:
+                    try:
+                        article_obj = Article(full_url)
+                        article_obj.download()
+                        article_obj.parse()
+                        summary = article_obj.text[:200]
+                    except Exception as e:
+                        print(f"Error processing article {full_url}: {e}")
+                        summary = title[:200]
 
-            # 如果没有摘要字段，默认使用标题的前200个字符作为摘要
-            if not summary:
-                summary = title[:200] + "..." if len(title) > 200 else title
+                date = ""
+                if date_tag:
+                    date = date_tag["datetime"] if date_tag.has_attr("datetime") else date_tag.get_text(strip=True)
+                if not date:
+                    date = datetime.today().strftime("%Y-%m-%d")
 
-            date = date_tag.text.strip() if date_tag else datetime.today().strftime("%Y-%m-%d")
+                news_item = {
+                    "title": title,
+                    "summary": summary,
+                    "url": full_url,
+                    "date": date,
+                    "source": source["name"],
+                }
+                latest_news.append(news_item)
 
-            latest_news.append({
-                "title": title,
-                "summary": summary,
-                "source": source["name"],
-                "date": date,
-                "url": full_url
-            })
-            print(f"✔ {source['name']} - {title} - {full_url}")
-
-# 遍历所有新闻网站
 for source in sources:
     scrape_website(source)
 
-# 6. 只保留最新 20 条新闻
-latest_news = sorted(latest_news, key=lambda x: x["date"], reverse=True)[:20]
-
-# 7. 保存到 JSON
-def save_news_to_json(news):
-    with open("news.json", "w", encoding="utf-8") as file:
-        json.dump(news, file, indent=4, ensure_ascii=False)
-    print("✅ 新闻数据已保存到 news.json")
-
-save_news_to_json(latest_news)
-
-# 8. Git 提交更新
-def update_git_repo():
-    os.system("git add news.json")
-    os.system('git commit -m "更新新闻数据"')
-    os.system("git push origin main")
-    print("🚀 GitHub 已更新")
-
-update_git_repo()
-
-# 9. 关闭浏览器
 driver.quit()
+
+output_file = "/Users/apple/ai-news/news.json"
+with open(output_file, "w", encoding="utf-8") as f:
+    json.dump(latest_news, f, ensure_ascii=False, indent=4)
+
+print("✅ 新闻数据已保存到 news.json")
